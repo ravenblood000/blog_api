@@ -1,0 +1,55 @@
+W, [2022-06-21T13:41:45.319027 #355]  WARN -- : You are running SQLite in production, this is generally not recommended. You can disable this warning by setting "config.active_record.sqlite3_production_warning=false".
+I, [2022-06-21T13:42:15.357661 #355]  INFO -- : [d74b94ce-0945-4917-a7b9-aee684587a65] Started GET "/" for 2601:18d:4801:1c30:893e:c428:529a:119 at 2022-06-21 13:42:15 -0400
+I, [2022-06-21T13:42:15.363090 #355]  INFO -- : [d74b94ce-0945-4917-a7b9-aee684587a65] Processing by ArticlesController#index as HTML
+I, [2022-06-21T13:42:15.380574 #355]  INFO -- : [d74b94ce-0945-4917-a7b9-aee684587a65] Completed 500 Internal Server Error in 17ms (ActiveRecord: 4.7ms | Allocations: 1733)
+F, [2022-06-21T13:42:15.383720 #355] FATAL -- : [d74b94ce-0945-4917-a7b9-aee684587a65]   
+[d74b94ce-0945-4917-a7b9-aee684587a65] ActiveRecord::StatementInvalid (SQLite3::SQLException: no such table: articles):
+[d74b94ce-0945-4917-a7b9-aee684587a65]   
+[d74b94ce-0945-4917-a7b9-aee684587a65] app/controllers/articles_controller.rb:7:in `index'
+I, [2022-06-21T13:42:15.688507 #355]  INFO -- : [539eaf64-5560-4e1e-ab4d-27ef3986f0a2] Started GET "/favicon.ico" for 2601:18d:4801:1c30:893e:c428:529a:119 at 2022-06-21 13:42:15 -0400
+F, [2022-06-21T13:42:15.689396 #355] FATAL -- : [539eaf64-5560-4e1e-ab4d-27ef3986f0a2]   
+[539eaf64-5560-4e1e-ab4d-27ef3986f0a2] ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+[539eaf64-5560-4e1e-ab4d-27ef3986f0a2]   
+I, [2022-06-21T13:42:37.044916 #355]  INFO -- : [47943774-3e29-4d39-9b38-2922c25f87d2] Started GET "/articles" for 127.0.0.1 at 2022-06-21 13:42:37 -0400
+I, [2022-06-21T13:42:37.045978 #355]  INFO -- : [47943774-3e29-4d39-9b38-2922c25f87d2] Processing by ArticlesController#index as */*
+I, [2022-06-21T13:42:37.048559 #355]  INFO -- : [47943774-3e29-4d39-9b38-2922c25f87d2] Completed 500 Internal Server Error in 2ms (ActiveRecord: 1.3ms | Allocations: 299)
+F, [2022-06-21T13:42:37.049856 #355] FATAL -- : [47943774-3e29-4d39-9b38-2922c25f87d2]   
+[47943774-3e29-4d39-9b38-2922c25f87d2] ActiveRecord::StatementInvalid (SQLite3::SQLException: no such table: articles):
+[47943774-3e29-4d39-9b38-2922c25f87d2]   
+[47943774-3e29-4d39-9b38-2922c25f87d2] app/controllers/articles_controller.rb:7:in `index'
+I, [2022-06-21T13:42:55.262901 #355]  INFO -- : [a75c46a4-b2f4-483f-ad2a-6233edfbb4b1] Started GET "/" for 127.0.0.1 at 2022-06-21 13:42:55 -0400
+I, [2022-06-21T13:42:55.264857 #355]  INFO -- : [a75c46a4-b2f4-483f-ad2a-6233edfbb4b1] Processing by ArticlesController#index as HTML
+I, [2022-06-21T13:42:55.267227 #355]  INFO -- : [a75c46a4-b2f4-483f-ad2a-6233edfbb4b1] Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.8ms | Allocations: 281)
+F, [2022-06-21T13:42:55.268707 #355] FATAL -- : [a75c46a4-b2f4-483f-ad2a-6233edfbb4b1]   
+[a75c46a4-b2f4-483f-ad2a-6233edfbb4b1] ActiveRecord::StatementInvalid (SQLite3::SQLException: no such table: articles):
+[a75c46a4-b2f4-483f-ad2a-6233edfbb4b1]   
+[a75c46a4-b2f4-483f-ad2a-6233edfbb4b1] app/controllers/articles_controller.rb:7:in `index'
+I, [2022-06-21T13:42:57.576181 #355]  INFO -- : [2deb321f-1b78-498e-a1ef-8461ee5cb99f] Started GET "/" for 127.0.0.1 at 2022-06-21 13:42:57 -0400
+I, [2022-06-21T13:42:57.580132 #355]  INFO -- : [2deb321f-1b78-498e-a1ef-8461ee5cb99f] Processing by ArticlesController#index as HTML
+I, [2022-06-21T13:42:57.585333 #355]  INFO -- : [2deb321f-1b78-498e-a1ef-8461ee5cb99f] Completed 500 Internal Server Error in 5ms (ActiveRecord: 1.6ms | Allocations: 293)
+F, [2022-06-21T13:42:57.591445 #355] FATAL -- : [2deb321f-1b78-498e-a1ef-8461ee5cb99f]   
+[2deb321f-1b78-498e-a1ef-8461ee5cb99f] ActiveRecord::StatementInvalid (SQLite3::SQLException: no such table: articles):
+[2deb321f-1b78-498e-a1ef-8461ee5cb99f]   
+[2deb321f-1b78-498e-a1ef-8461ee5cb99f] app/controllers/articles_controller.rb:7:in `index'
+I, [2022-06-21T13:43:02.260295 #355]  INFO -- : [da48dc95-36fe-4c73-9341-e70cc3c1de4e] Started GET "/articles" for 127.0.0.1 at 2022-06-21 13:43:02 -0400
+I, [2022-06-21T13:43:02.261184 #355]  INFO -- : [da48dc95-36fe-4c73-9341-e70cc3c1de4e] Processing by ArticlesController#index as HTML
+I, [2022-06-21T13:43:02.263378 #355]  INFO -- : [da48dc95-36fe-4c73-9341-e70cc3c1de4e] Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.9ms | Allocations: 281)
+F, [2022-06-21T13:43:02.264683 #355] FATAL -- : [da48dc95-36fe-4c73-9341-e70cc3c1de4e]   
+[da48dc95-36fe-4c73-9341-e70cc3c1de4e] ActiveRecord::StatementInvalid (SQLite3::SQLException: no such table: articles):
+[da48dc95-36fe-4c73-9341-e70cc3c1de4e]   
+[da48dc95-36fe-4c73-9341-e70cc3c1de4e] app/controllers/articles_controller.rb:7:in `index'
+I, [2022-06-21T13:43:33.522425 #355]  INFO -- : [6a5fb44e-7ce5-4526-9a23-ab4c521a50e0] Started GET "/articles/2" for 127.0.0.1 at 2022-06-21 13:43:33 -0400
+I, [2022-06-21T13:43:33.525002 #355]  INFO -- : [6a5fb44e-7ce5-4526-9a23-ab4c521a50e0] Processing by ArticlesController#show as HTML
+I, [2022-06-21T13:43:33.525297 #355]  INFO -- : [6a5fb44e-7ce5-4526-9a23-ab4c521a50e0]   Parameters: {"id"=>"2"}
+I, [2022-06-21T13:43:33.534580 #355]  INFO -- : [6a5fb44e-7ce5-4526-9a23-ab4c521a50e0] Completed 500 Internal Server Error in 9ms (ActiveRecord: 3.0ms | Allocations: 463)
+F, [2022-06-21T13:43:33.539596 #355] FATAL -- : [6a5fb44e-7ce5-4526-9a23-ab4c521a50e0]   
+[6a5fb44e-7ce5-4526-9a23-ab4c521a50e0] ActiveRecord::StatementInvalid (Could not find table 'articles'):
+[6a5fb44e-7ce5-4526-9a23-ab4c521a50e0]   
+[6a5fb44e-7ce5-4526-9a23-ab4c521a50e0] app/controllers/articles_controller.rb:12:in `show'
+I, [2022-06-21T13:43:37.515695 #355]  INFO -- : [eb23e754-5d94-407d-99af-09150147310d] Started GET "/" for 127.0.0.1 at 2022-06-21 13:43:37 -0400
+I, [2022-06-21T13:43:37.516704 #355]  INFO -- : [eb23e754-5d94-407d-99af-09150147310d] Processing by ArticlesController#index as HTML
+I, [2022-06-21T13:43:37.519905 #355]  INFO -- : [eb23e754-5d94-407d-99af-09150147310d] Completed 500 Internal Server Error in 3ms (ActiveRecord: 1.7ms | Allocations: 284)
+F, [2022-06-21T13:43:37.522563 #355] FATAL -- : [eb23e754-5d94-407d-99af-09150147310d]   
+[eb23e754-5d94-407d-99af-09150147310d] ActiveRecord::StatementInvalid (SQLite3::SQLException: no such table: articles):
+[eb23e754-5d94-407d-99af-09150147310d]   
+[eb23e754-5d94-407d-99af-09150147310d] app/controllers/articles_controller.rb:7:in `index'
