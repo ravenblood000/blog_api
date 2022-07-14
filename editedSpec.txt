@@ -340,6 +340,28 @@ paths:
       responses:
         '204':
           description: No content found. Deletion was successful.
+  /articles/id/addviews/views:
+    get:
+      description: Update some article to have a specified number of views, plus 100.
+      responses:
+        '200':
+          description: Views update was successful
+          content:
+            application/json:
+              schema:
+                type: int
+                  description: The updated number of views.
+  /articles/id/readviews/views:
+    get:
+      description: Interprets the views as a string and prints out "This article has [views] views."
+      responses:
+        '200':
+          description: Views print was successful
+          content:
+            application/json:
+              schema:
+                type: string
+                  description: The printed phrase with the passed number of views.
   /articles/id/comments:
     - name: id
       description: Article id
