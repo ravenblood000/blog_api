@@ -35,7 +35,7 @@ argv = []
 while (True):
     command = input("What is your query?\n'read [id] [comment] [comment id]'," + 
                     "'create [id] [comment]', 'update [id]'," +
-                    "'delete [id] [comment] [comment id]', 'quit'\n")
+                    "'delete [id] [comment] [comment id]', 'addviews [id]', 'readviews [id]', 'quit'\n")
     argv = command.split()
     argc = len(argv)
     if command.startswith("read"):
@@ -72,7 +72,12 @@ while (True):
         body = input("New Body: ")
         print("Current status", jsonObj["status"])
         status = input("New Status: ")
-        diction = {"title": jsonObj["title"], "body": jsonObj["body"], "status": jsonObj["status"]}
+        views = input("Views: ")
+        floater = input("Floater: ")
+        deci = input("Deci: ")
+        bool = input("Bool: ")
+        image = input("Encode to binary: ")
+        diction = {"title": jsonObj["title"], "body": jsonObj["body"], "status": jsonObj["status"], "views": views, "floater": floater, "deci": deci, "bool": bool, "image": image}
         if title != "":
             diction["title"] = title
         if body != "":
@@ -96,6 +101,12 @@ while (True):
                 print("Comment", argv[3], "on Article", argv[3], "could not be deleted.")
         else:
             print(ERROR)
+    
+    elif command.startswith("addviews") and argc == 2:
+        makeReq("GET", URL + "/" + argv[1] + "/" + argv[0])
+    elif command.startswith("readviews") and argc == 2:
+        makeReq("GET", URL + "/" + argv[1] + "/" + argv[0])
+    
     elif command == "quit":
         sys.exit("Thank you!")
     else:

@@ -1,0 +1,469 @@
+openapi: 3.0.1
+info:
+  title: Blog API
+  description: "A simple blog API of articles for testing"
+  version: '1.1'
+servers:
+  - url: https://27cc-72-70-45-67.ngrok.io
+paths:
+  /articles:
+    get:
+      description: Read a list of all published articles, their details, and comments
+      responses:
+        '200':
+          description: Read was successful
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    title:
+                      type: string
+                      description: The title of the article
+                    body:
+                      type: string
+                      description: The body of the article
+                    created_at:
+                      type: string
+                      description: The timestamp of the article's creation
+                    updated_at:
+                      type: string
+                      description: The timestamp of when the article was last updated
+                    status:
+                      type: string
+                      description: The publication status of the article
+                      enum:
+                      - public
+                      - private
+                      - archived
+                    views:
+                      type: integer
+                      description: The number of views that each article has
+                    floater:
+                      type: float
+                      description: An arbitrary float number
+                    deci:
+                      type: decimal
+                      description: An arbitrary decimal number
+                    publish:
+                      type: datetime
+                      description: The article's date of last update, stored as a DateTime object
+                    publishD:
+                      type: date
+                      description: The article's date of last update, stored as a Date object
+                    publishT:
+                      type: time
+                      description: The article's date of last update, stored as a Time object
+                    bool:
+                      type: boolean
+                      description: An arbitrary boolean value
+                    image:
+                      type: binary
+                      description: An arbitrary binary data field
+                    comments:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          commenter:
+                            type: string
+                            description: The name of the commenter
+                          body:
+                            type: string
+                            description: The body of the comment
+                          created_at:
+                            type: string
+                            description: The timestamp of the comment's creation
+                          updated_at:
+                            type: string
+                            description: The timestamp of when the article was last updated (in this case, same as creation)
+                          status:
+                            type: string
+                            description: The publication status of the comment
+                            enum:
+                            - public
+                            - private
+                            - archived
+    post:
+      description: Create a new article
+      parameters:
+        - name: title
+          in: query
+          schema:
+            type: string
+          example: "SwaggerArticle"
+        - name: body
+          in: query
+          schema:
+            type: string
+          example: >-
+            "This is the body of my article.". "For some reason, I can only enter spaces afterwards.".
+        - name: status
+          in: query
+          schema:
+            type: string
+            enum:
+            - public
+            - private
+            - archived
+      responses:
+        '200':
+          description: Article creation was successful
+          content:
+            application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: The title of the article
+                body:
+                  type: string
+                  description: The body of the article
+                created_at:
+                  type: string
+                  description: The timestamp of the article's creation
+                updated_at:
+                  type: string
+                  description: The timestamp of when the article was last updated
+                status:
+                  type: string
+                  description: The publication status of the article
+                  enum:
+                  - public
+                  - private
+                  - archived
+                comments:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      commenter:
+                        type: string
+                        description: The name of the commenter
+                      body:
+                        type: string
+                        description: The body of the comment
+                      created_at:
+                        type: string
+                        description: The timestamp of the comment's creation
+                      updated_at:
+                        type: string
+                        description: The timestamp of when the article was last updated (in this case, same as creation)
+                      status:
+                        type: string
+                        description: The publication status of the comment
+                        enum:
+                        - public
+                        - private
+                        - archived
+  /articles/id:
+    - name: id
+      description: Article id
+      type: int
+      example: 1. 2. 3
+    get:
+      description: Read a specific article
+      responses:
+        '200':
+          description: Read was successful
+          content:
+            application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: The title of the article
+                body:
+                  type: string
+                  description: The body of the article
+                created_at:
+                  type: string
+                  description: The timestamp of the article's creation
+                updated_at:
+                  type: string
+                  description: The timestamp of when the article was last updated
+                status:
+                  type: string
+                  description: The publication status of the article
+                  enum:
+                  - public
+                  - private
+                  - archived
+                views:
+                  type: integer
+                  description: The number of views that each article has
+                floater:
+                  type: float
+                  description: An arbitrary float number
+                deci:
+                  type: decimal
+                  description: An arbitrary decimal number
+                publish:
+                  type: datetime
+                  description: The article's date of last update, stored as a DateTime object
+                publishD:
+                  type: date
+                  description: The article's date of last update, stored as a Date object
+                publishT:
+                  type: time
+                  description: The article's date of last update, stored as a Time object
+                bool:
+                  type: boolean
+                  description: An arbitrary boolean value
+                image:
+                  type: binary
+                  description: An arbitrary binary data field
+                comments:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      commenter:
+                        type: string
+                        description: The name of the commenter
+                      body:
+                        type: string
+                        description: The body of the comment
+                      created_at:
+                        type: string
+                        description: The timestamp of the comment's creation
+                      updated_at:
+                        type: string
+                        description: The timestamp of when the article was last updated (in this case, same as creation)
+                      status:
+                        type: string
+                        description: The publication status of the comment
+                        enum:
+                        - public
+                        - private
+                        - archived
+    put:
+      description: Edit a specific article
+      parameters:
+        - name: title
+          in: query
+          schema:
+            type: string
+        - name: body
+          in: query
+          schema:
+            type: string
+         - name: status
+          in: query
+          schema:
+            type: string
+            enum:
+            - public
+            - private
+            - archived
+      responses:
+        '200':
+          description: Article edit was successful
+          content:
+            application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: The title of the article
+                body:
+                  type: string
+                  description: The body of the article
+                created_at:
+                  type: string
+                  description: The timestamp of the article's creation
+                updated_at:
+                  type: string
+                  description: The timestamp of when the article was last updated
+                status:
+                  type: string
+                  description: The publication status of the article
+                  enum:
+                  - public
+                  - private
+                  - archived
+                views:
+                  type: integer
+                  description: The number of views that each article has
+                floater:
+                  type: float
+                  description: An arbitrary float number
+                deci:
+                  type: decimal
+                  description: An arbitrary decimal number
+                publish:
+                  type: datetime
+                  description: The article's date of last update, stored as a DateTime object
+                publishD:
+                  type: date
+                  description: The article's date of last update, stored as a Date object
+                publishT:
+                  type: time
+                  description: The article's date of last update, stored as a Time object
+                bool:
+                  type: boolean
+                  description: An arbitrary boolean value
+                image:
+                  type: binary
+                  description: An arbitrary binary data field
+                comments:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      commenter:
+                        type: string
+                        description: The name of the commenter
+                      body:
+                        type: string
+                        description: The body of the comment
+                      created_at:
+                        type: string
+                        description: The timestamp of the comment's creation
+                      updated_at:
+                        type: string
+                        description: The timestamp of when the article was last updated (in this case, same as creation)
+                      status:
+                        type: string
+                        description: The publication status of the comment
+                        enum:
+                        - public
+                        - private
+                        - archived
+    delete:
+      description: Delete a specific article
+      responses:
+        '204':
+          description: No content found. Deletion was successful.
+  /articles/id/comments:
+    - name: id
+      description: Article id
+      type: int
+      example: 1. 2. 3
+    get:
+      description: Read a list of all comments on a specific article
+      responses:
+        '200':
+          description: Comments read was successful
+          content:
+            application/json:
+            schema:
+              type: array
+                items:
+                  type: object
+                  properties:
+                    commenter:
+                      type: string
+                      description: The name of the commenter
+                    body:
+                      type: string
+                      description: The body of the comment
+                    created_at:
+                      type: string
+                      description: The timestamp of the comment's creation
+                    updated_at:
+                      type: string
+                      description: The timestamp of when the article was last updated (in this case, same as creation)
+                    status:
+                      type: string
+                      description: The publication status of the comment
+                      enum:
+                      - public
+                      - private
+                      - archived
+    post:
+      description: Create a new comment on a specific article
+      parameters:
+	  - name: commenter
+          in: query
+          schema:
+            type: string
+          example: Tester123
+        - name: body
+          in: query
+          schema:
+            type: string
+          example: Great%20article%21%20Love%20the%20grammar.
+        - name: status
+          in: query
+          schema:
+            type: string
+            enum:
+            - public
+            - private
+            - archived
+      responses:
+        '200':
+          description: Comment creation was successful
+          content:
+            application/json:
+            schema:
+              type: object
+                properties:
+                  commenter:
+                    type: string
+                    description: The name of the commenter
+                  body:
+                    type: string
+                    description: The body of the comment
+                  created_at:
+                    type: string
+                    description: The timestamp of the comment's creation
+                  updated_at:
+                    type: string
+                    description: The timestamp of when the article was last updated (in this case, same as creation)
+                  status:
+                    type: string
+                    description: The publication status of the comment
+                    enum:
+                    - public
+                    - private
+                    - archived
+  /articles/id/comments/comment_id:
+    - name: id
+      description: Article ID
+      type: int
+      example: 1. 2. 3
+    - name: comment_id
+      description: Comment ID
+      type: int
+      example: 1. 2. 3
+    get:
+      description: Read a specific comment on a specific article
+      responses:
+        '200':
+          description: Comment read was successful
+          content:
+            application/json:
+            schema:
+              type: object
+                properties:
+                  commenter:
+                    type: string
+                    description: The name of the commenter
+                  body:
+                    type: string
+                    description: The body of the comment
+                  created_at:
+                    type: string
+                    description: The timestamp of the comment's creation
+                  updated_at:
+                    type: string
+                    description: The timestamp of when the article was last updated (in this case, same as creation)
+                  status:
+                    type: string
+                    description: The publication status of the comment
+                    enum:
+                    - public
+                    - private
+                    - archived
+    delete:
+      description: Delete a specific comment on a specific article
+      responses:
+        '204':
+          description: No content found. Deletion was successful.

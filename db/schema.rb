@@ -10,13 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_01_185935) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_14_174821) do
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "status"
+    t.integer "views"
+    t.float "floater"
+    t.decimal "deci"
+    t.datetime "publish"
+    t.date "publishD"
+    t.time "publishT"
+    t.boolean "bool"
+    t.binary "image"
   end
 
   create_table "comments", force: :cascade do |t|
