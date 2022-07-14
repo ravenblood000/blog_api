@@ -72,7 +72,12 @@ while (True):
         body = input("New Body: ")
         print("Current status", jsonObj["status"])
         status = input("New Status: ")
-        diction = {"title": jsonObj["title"], "body": jsonObj["body"], "status": jsonObj["status"]}
+        views = input("Views: ")
+        floater = input("Floater: ")
+        deci = input("Deci: ")
+        bool = input("Bool: ")
+        image = input("Encode to binary: ")
+        diction = {"title": jsonObj["title"], "body": jsonObj["body"], "status": jsonObj["status"], "views": views, "floater": floater, "deci": deci, "bool": bool, "image": image}
         if title != "":
             diction["title"] = title
         if body != "":
